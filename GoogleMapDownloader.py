@@ -38,7 +38,7 @@ class GoogleMapDownloader:
 
             Returns:    An X,Y tile coordinate
         """
-        # Tiles have a size of 256 * 256
+        
         tile_size = 256
 
         # Use a left shift to get the power of 2
@@ -54,7 +54,6 @@ class GoogleMapDownloader:
         # Calulate the y coorindate
         point_y = ((tile_size / 2) + 0.5 * math.log((1+sin_y)/(1-sin_y)) * -(tile_size / (2 * math.pi))) * numTiles // tile_size
 
-        # Return the points as an integer tuple 
         return int(point_x), int(point_y)
 
     def generateImage(self, **kwargs):
@@ -94,11 +93,9 @@ class GoogleMapDownloader:
                 current_tile = str(x)+'-'+str(y)
                 urllib.urlretrieve(url, current_tile)
             
-                # Open the image
                 im = Image.open(current_tile)
                 map_img.paste(im, (x*256, y*256))
               
-                #Remove the temp file from disk
                 os.remove(current_tile)
 
         return map_img
