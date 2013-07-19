@@ -4,7 +4,7 @@
 #
 # A script which when given a longitude, latitude and zoom level downloads a
 # high resolution google map
-# Find the associated blog post at: http://blog.eskriett.com/?p=132
+# Find the associated blog post at: http://blog.eskriett.com/2013/07/19/downloading-google-maps/
 
 import urllib
 import Image
